@@ -1,0 +1,21 @@
+
+{% extends 'main.html' %}
+
+
+{% block content %}
+    {% if request.user == task.creator %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <strong>Are you sure you want to delete "{{task.title}}"?</strong><br>
+        <a href="{% url 'home' %}">Go Back</a>
+        <input class="btn btn-sm btn-danger" type="submit" value="Delete Task" />
+    </form>
+
+    {% else %}
+        <div class="item-row">
+        <h1><strong >You do not have access to this task, this task was created by {{task.creator}} </strong></h1>
+        </div>
+    {% endif %}
+    
+{% endblock content %}

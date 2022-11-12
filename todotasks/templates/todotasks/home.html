@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<div class="task-header">
+    <strong><a href="{% url 'add-task' %}">Add Task</a></strong><br>
+</div>
+    <div class="todo-list">
+    <div class="task-header">
+        <h3>Tasks</h3>
+    </div>
+    {% for task in tasks %}
+        <div class="item-row">
+            
+            {% if task.complete == True %}
+                <a href="{% url 'task' task.id %}"><h2>{{task.title}} <b>(Done)</b></h2></a>
+
+                {% else %}
+                <a href="{% url 'task' task.id %}"><h2>{{task.title}}</h2></a>
+            {% endif %}
+
+        <p>{{task.body|truncatewords:20}}</p><br>
+
+        <a class="btn btn-sm btn-info" href="{% url 'update-task' task.id %}">Update Task</a> | 
+        <a class="btn btn-sm btn-danger" href="{% url 'delete-task' task.id %}">Delete Task</a>
+        </div>
+        
+    {% endfor %}
+    </div>
+{% endblock content %}

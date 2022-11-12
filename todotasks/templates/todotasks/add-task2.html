@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-info" type="submit" value="Add Task" />
+    </form>
+</div>
+
+<!-- <form action="" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+            <strong>Title:</strong>{{ form.title }}<br>
+            <strong>Description</strong>{{ form.body }}<br>
+            <strong>Status</strong>{{ form.complete }}<br>
+        </div>
+    {% endfor %}
+        <input type="submit" value="Create Task" />
+</form> -->
+    
+{% endblock content %}

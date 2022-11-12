@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <strong>Title: </strong><input type="text" name="title" placeholder="Enter a title"><br>
+        <strong>Body: </strong><textarea name="body" rows="25" cols="80" placeholder="Enter the task here"></textarea><br><br>
+        <strong>Complete: </strong><input type="checkbox" name="complete"><br>
+        <input class="btn btn-info" type="submit" value="Add Task" />
+    </form>
+</div>
+
+<!-- <form action="" method="POST">
+    {% csrf_token %}
+    <div class="fieldWrapper">
+        <ul>
+            {{form.as_ul}}
+        </ul>
+    </div>
+    <input type="submit" value="Create Task" />
+</form>
+     -->
+{% endblock content %}
