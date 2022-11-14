@@ -14,7 +14,8 @@
     <a href="{% url 'login' %}">Login</a><br><br>
 
     {% endif %}
-    <b>Date & Time: {% now 'jS F Y H:i' %} </b><br>
+    <!-- <b>Date & Time: {% now 'jS F Y H:i ' %} </b><br> -->
+    <b>Date & Time: {% now "D, jS F Y, g:i A" %} </b><br>
 </div>
 <div class="message-danger">
   {% if messages %}
