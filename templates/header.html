@@ -1,52 +1,13 @@
 {% load static %}
-<!-- <header class="header header--loggedIn"> -->
-<!-- <div class="container"> -->
-<!-- <div class="header">
-  <h1 class="title-header"><a href="/"<strong> My Note</strong></a> </h1>
-  
-
-{% if request.user.is_authenticated %} 
-    <b >Welcome {{request.user.username}} </b>
-    |<a href="{% url 'logout' %}"> Logout</a> <br><br>
-    
- 
-    {% else %}
-    <a href="{% url 'login' %}">Login</a><br><br>
-
-    {% endif %}
-    <!-- <b>Date & Time: {% now 'jS F Y H:i ' %} </b><br> -->
-    <!-- <b>Date & Time: {% now "D, jS F Y, g:i A" %} </b><br> -->
-<!--</div> -->
-<!-- <div class="message-danger">
-  {% if messages %}
-  
-  {% for message in messages  %}
-    <li>{{ message }}</li>
-  {% endfor %}
-
-  {% endif %}
-</div>  -->
 
 <div class="header" justify-content:center >
-  <!-- <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08"> -->
-      <strong> Date and Time: {% now "D, jS F Y, g:i A" %} </strong>
-  <!-- </div> -->
 
-  <!-- <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08"> -->
-  <!-- <div class="header"> -->
+      <strong> Date and Time: {% now "D, jS F Y, g:i A" %} </strong>
+
+
+  
       <form role="search">
       <input class="form-control" type="search" placeholder="Search" aria-label="Search">
   </form>
-  <!-- </div> -->
+  
 </div> 
-<!-- {% if request.user.is_authenticated %}
-<h1>{{request.user.username}}</h1> <a href="{% url 'logout' %}">Logout</a> 
- 
- {% else %}
-<a href="{% url 'login' %}">Login</a>
-
-{% endif %} -->
-        <!-- </div>
-      </nav>
-    </div>
-  </header>  -->

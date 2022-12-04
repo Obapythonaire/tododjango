@@ -40,29 +40,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Contact Us</a>
                     </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                            aria-expanded="false">View My Works</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li> -->
+
                 </ul>
 
-                <!-- <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08"> 
-                            Date and Time: {% now "D, jS F Y, g:i A" %}
-                </div>
 
-                <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-                    <form role="search">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    </form>
-                </div> -->
-                <!-- <div class="container-fluid">
-        <strong>Date and Time: </strong>
-        </div> -->
                 {% if request.user.is_authenticated %}
                 <b>Welcome {{request.user.username}} </b>
                 |<a href="{% url 'logout' %}"> Logout</a> <br><br>
