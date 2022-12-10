@@ -1,15 +1,25 @@
 {% extends 'main.html' %}
+{% load crispy_forms_tags %}
+
 
 
 {% block content %}
-<div>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <strong>Title: </strong><input type="text" name="title" placeholder="Enter a title"><br>
+<div class="item-row">
+    <div style="margin:80px padding: auto">
+        <form action="" method="POST">
+            {% csrf_token %}
+        <!-- {{form.title | as_crispy_field }}
+        {{form.body | as_crispy_field }}
+        {{form.complete | as_crispy_field }} -->
+
+        <!-- <strong>Title: </strong><input type="text" name="title" placeholder="Enter a title"><br>
         <strong>Body: </strong><textarea name="body" rows="25" cols="80" placeholder="Enter the task here"></textarea><br><br>
         <strong>Complete: </strong><input type="checkbox" name="complete"><br>
-        <input class="btn btn-info" type="submit" value="Add Task" />
-    </form>
+        <input class="btn btn-info" type="submit" value="Add Task" /> -->
+            {{form|crispy}}
+            <input class="btn btn-info" type="submit" value="Add Task" />
+        </form>
+    </div>
 </div>
 
 <!-- <form action="" method="POST">

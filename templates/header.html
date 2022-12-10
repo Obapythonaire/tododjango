@@ -6,8 +6,8 @@
 
 
   
-      <form role="search">
-      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+  <form role="search" method="GET" action="{% url 'home' %}">
+      <input class="form-control" name="q" type="search" placeholder="Search Site" aria-label="Search" />
   </form>
   
 </div> 

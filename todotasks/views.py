@@ -1,5 +1,6 @@
 from asyncio import Task
 from multiprocessing import context
+from django.db.models import Q
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User, auth
@@ -18,11 +19,18 @@ def home(request):
     # user = User.objects.get(id=pk)
     # user = request.id
     tasks = Todo.objects.filter(creator=request.user.id)
+    q = request.GET.get('q') if request.GET.get('q') is not None else ' '
+    task= Todo.objects.filter(
+        # Q(creator__icontains=query) | 
+        Q(title__icontains=q) |
+        Q(body__icontains=q)
+
+    )
     # tasks = Task.objects.filter(user)
     # tasks = Task.objects.filter(user=request.user.id)
     # tasks = Todo.objects.all()
 
-    context = {'tasks': tasks}
+    context = {'tasks': tasks, 'task': task}
     return render(request, 'todotasks/home.html', context)
 
 def loginPage(request):
@@ -135,3 +143,19 @@ def DelTask(request, pk):
 
     context = {'task':task}
     return render(request, 'todotasks/delete-task.html', context)
+
+@login_required(login_url='login')
+def Counter(request):
+
+    return render(request, 'todotasks/sentanalyzer.html')
+
+@login_required(login_url='login')
+def WordAnalysis(request):
+    text = request.POST['word']
+    total_word = len(text.split())
+    word_no_wo_space =len(text.replace(" ", ""))
+    word_no = len(text)
+
+    context = {'text':text, 'total_word': total_word, 'word_no': word_no, 'word_no_wo_space':word_no_wo_space}
+
+    return render(request, 'todotasks/wordanalysis.html', context)
