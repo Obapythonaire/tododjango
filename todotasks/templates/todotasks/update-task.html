@@ -1,19 +1,23 @@
 {% extends 'main.html' %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
+<div class="item-row">
+    <div style="margin:80px padding: auto">
+
     {% if request.user == task.creator %}
      
     <form action="" method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <input class="btn btn-sm btn-info" type="submit" value="Update Task" />
+        {{form|crispy}}
+        <input class="btn btn-info" type="submit" value="Add Task" />
     </form>
 
     {% else %}
-        <div class="item-row">
+
         <h1><strong >You do not have access to this task, this task was created by {{task.creator}} </strong></h1>
-        </div>
+    </div>
+</div>
     {% endif %}
 
 {% endblock content %}
